@@ -58,35 +58,57 @@
       );
     }
 
-    function App() {
+    function ChatMessages() {
+      const chatMessages = [{
+        message: 'hello chatbot',
+        sender: 'user',
+        id: 'id1'
+      }, {
+        message: 'Hi how are u',
+        sender: 'robot',
+        id: 'id2'
+      }, {
+        message: 'Im good',
+        sender: 'preciate',
+        id: 'id3'
+      }, {
+        message: 'Lil twin',
+        sender: 'Blick sum',
+        id: 'id4'
+      }];
+
+
       return (
         <>
-          <ChatInput />
-          <ChatMessage
-            message="hello chatbot"
-            sender="user"
-          />
-          <ChatMessage
-            message="Hi how are u"
-            sender="robot"
-          />
-          <ChatMessage
-            message="Im good"
-            sender="user"
-          />
-          <ChatMessage
-            message="Lil twin"
-            sender="robot"
-          />
+          {
+            chatMessages.map((chatMessage) => {
+              return (
+                <ChatMessage
+                  message={chatMessage.message}
+                  sender={chatMessage.sender}
+                  key={chatMessage.id}
+                />
+              );
+            })
+          }
         </>
       );
     }
 
 
-   
+    function App() {
+      return (
+        <>
+          <ChatInput />
+          <ChatMessages/>
+
+        </>
+      );
+    }
+
 
     const container = document.querySelector('.js-container');
-    ReactDOM.createRoot(container).render(<App/>);
+    ReactDOM.createRoot(container).render(<App />);
   </script>
 </body>
 
